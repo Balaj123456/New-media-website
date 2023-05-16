@@ -1,0 +1,24 @@
+let textarea = document.getElementById('textarea');
+
+function formatText(style) {
+  let start = textarea.selectionStart;
+  let end = textarea.selectionEnd;
+  let selectedText = textarea.value.substring(start, end);
+
+  switch (style) {
+    case 'bold':
+      selectedText = '<b>' + selectedText + '</b>';
+      break;
+    case 'italic':
+      selectedText = '<i>' + selectedText + '</i>';
+      break;
+    case 'underline':
+      selectedText = '<u>' + selectedText + '</u>';
+      break;
+  }
+
+  textarea.value =
+    textarea.value.substring(0, start) +
+    selectedText +
+    textarea.value.substring(end);
+}
